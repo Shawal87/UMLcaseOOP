@@ -1,0 +1,49 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+
+Patient "1"*-- "1" Billing
+
+ Billing "1"  o-- "1" Receptionist
+ Receptionist "1" --  "1"Patient
+ Patient "1" -- "1" Doctor
+ User <|-- Receptionist
+ User <|-- Patient
+ User <|-- Doctor
+
+
+
+
+class User{
++ Choice()
+}
+
+
+class Receptionist {
+- R_id: int
+- R_name: String
++ GiveAppoint()
++ GenerateBill()
+}
+
+class Billing {
+ - B_no: int
+ - B_amt: int
+ - P_name :String
+ - B_amtL:float
+}
+
+class Patient {
+- P_id: int
+- P_name: String
++ PayBill()
+}
+
+class Doctor{
+- D_id: int
+- D_name: String
++ CheckPatient()
+}
+
+
+@enduml
